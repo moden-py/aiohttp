@@ -316,3 +316,17 @@ def test_resp_host():
     response = ClientResponse('get', URL('http://del-cl-resp.org'))
     with pytest.warns(DeprecationWarning):
         assert 'del-cl-resp.org' == response.host
+
+
+def test_content_type():
+    response = ClientResponse('get', URL('http://def-cl-resp.org'))
+    response.headers = {'Content-Type': 'application/json;charset=cp1251'}
+
+    assert 'application/json' == response.content_type
+
+
+def test_charset():
+    response = ClientResponse('get', URL('http://def-cl-resp.org'))
+    response.headers = {'Content-Type': 'application/json;charset=cp1251'}
+
+    assert 'cp1251' == response.charset
