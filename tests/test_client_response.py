@@ -327,6 +327,7 @@ def test_content_type():
 
 def test_content_type_no_header():
     response = ClientResponse('get', URL('http://def-cl-resp.org'))
+    response.headers = {}
 
     assert response.content_type is None
 
@@ -340,6 +341,7 @@ def test_charset():
 
 def test_charset_no_header():
     response = ClientResponse('get', URL('http://def-cl-resp.org'))
+    response.headers = {}
 
     assert response.charset is None
 
