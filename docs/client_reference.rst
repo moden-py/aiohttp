@@ -1237,6 +1237,16 @@ Response object
       HTTP headers of response as unconverted bytes, a sequence of
       ``(key, value)`` pairs.
 
+   .. attribute:: content_type
+
+      The lower-case value of content part for Content-Type HTTP
+      header.
+
+   .. attribute:: charset
+
+      The lower-case value of charset part for Content-Type HTTP
+      header.
+
    .. attribute:: history
 
       A :class:`~collections.abc.Sequence` of :class:`ClientResponse`
