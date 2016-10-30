@@ -1245,9 +1245,9 @@ Response object
 
          Returns value is ``'application/octet-stream'`` if no
          Content-Type header present in HTTP headers according to
-         :rfc:`2616`
-         To ensure Content-Type header is not present, use :attr:`headers`:
-         `'CONTENT-TYPE' not in resp.headers`
+         :rfc:`2616`. To make sure Content-Type header is not present in
+         the server reply, use :attr:`headers` or :attr:`raw_headers`
+         (``'CONTENT-TYPE' not in`` :attr:`headers`).
 
    .. attribute:: charset
 
