@@ -597,8 +597,11 @@ class ClientResponse:
     @property
     def charset(self):
         """The value of charset part for Content-Type HTTP header."""
-        ctype = self.headers.get(hdrs.CONTENT_TYPE, '').lower()
-        _, _, _, params = helpers.parse_mimetype(ctype)
+        ctype = self.headers.get(hdrs.CONTENT_TYPE, None)
+        if ctype is None:
+            # no Content-Type header
+            return None
+        _, _, _, params = helpers.parse_mimetype(ctype.lower())
         _charset = params.get('charset')
         return _charset
 
