@@ -1241,8 +1241,13 @@ Response object
 
       Read-only property with *content* part of *Content-Type* header.
 
-      Returns :class:`str` like ``'text/html'`` or ``None`` if no
-      *Content-Type* header present in HTTP headers.
+      .. note::
+
+         Returns value is ``'application/octet-stream'`` if no
+         Content-Type header present in HTTP headers according to
+         :rfc:`2616`
+         To ensure Content-Type header is not present, use :attr:`headers`:
+         `'CONTENT-TYPE' not in resp.headers`
 
    .. attribute:: charset
 
