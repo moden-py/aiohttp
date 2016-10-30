@@ -1,6 +1,5 @@
 import pytest
 
-#travis
 from aiohttp import web
 
 
