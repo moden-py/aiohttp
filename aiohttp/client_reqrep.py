@@ -586,7 +586,10 @@ class ClientResponse:
     @property
     def content_type(self):
         """The value of content part for Content-Type HTTP header."""
-        ctype = self.headers.get(hdrs.CONTENT_TYPE, '').lower()
+        ctype = self.headers.get(hdrs.CONTENT_TYPE, None).lower()
+        if ctype is None:
+            # no Content-Type header
+            return None
         mtype, stype, _, _ = helpers.parse_mimetype(ctype)
         _content_type = '{mtype}/{stype}'.format(mtype=mtype, stype=stype)
         return _content_type
