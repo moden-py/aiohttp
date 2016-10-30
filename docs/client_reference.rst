@@ -1239,13 +1239,19 @@ Response object
 
    .. attribute:: content_type
 
-      The lower-case value of content part for Content-Type HTTP
-      header.
+      Read-only property with *content* part of *Content-Type* header.
+
+      Returns :class:`str` like ``'text/html'`` or ``None`` if no
+      *Content-Type* header present in HTTP headers.
 
    .. attribute:: charset
 
-      The lower-case value of charset part for Content-Type HTTP
-      header.
+      Read-only property that specifies the *encoding* for the request's BODY.
+
+      The value is parsed from the *Content-Type* HTTP header.
+
+      Returns :class:`str` like ``'utf-8'`` or ``None`` if no *Content-Type*
+      header present in HTTP headers or it has no charset information.
 
    .. attribute:: history
 

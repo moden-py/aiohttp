@@ -325,8 +325,27 @@ def test_content_type():
     assert 'application/json' == response.content_type
 
 
+def test_content_type_no_header():
+    response = ClientResponse('get', URL('http://def-cl-resp.org'))
+
+    assert response.content_type is None
+
+
 def test_charset():
     response = ClientResponse('get', URL('http://def-cl-resp.org'))
     response.headers = {'Content-Type': 'application/json;charset=cp1251'}
 
     assert 'cp1251' == response.charset
+
+
+def test_charset_no_header():
+    response = ClientResponse('get', URL('http://def-cl-resp.org'))
+
+    assert response.charset is None
+
+
+def test_charset_no_charset():
+    response = ClientResponse('get', URL('http://def-cl-resp.org'))
+    response.headers = {'Content-Type': 'application/json'}
+
+    assert response.charset is None
